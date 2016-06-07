@@ -5,10 +5,7 @@
 SPATH=$(dirname `which $0`)
 source "$SPATH"/common.sh
 
-#/usr/bin/python $SPATH/sendmail.new.py -f "$FROM" -p "$PWD" -t "$TO" -a "$LOG"/*.txt -s "$SUB" -r "$HTML"
-/usr/bin/python $SPATH/sendmail.new.py -f "$FROM" -p "$PWD" -t "$TO" -a "/root/backup_script/new/forgit/logins.zip" -s "$SUB" -r "$HTML"
-
-exit
+/usr/bin/python $SPATH/sendmail.new.py -f "$FROM" -p "$PWD" -t "$TO" -a "$LOG"/*.txt -s "$SUB" -r "$HTML"
 
 tar cvf "$LOG"archive/$HOSTNAME-$TS.tar.gz $LOG/*.txt
 
