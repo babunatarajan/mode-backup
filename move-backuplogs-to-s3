@@ -1,0 +1,24 @@
+#!/bin/bash
+#Author: Babu Natarajan
+#Created on : Dec 27th 2017
+
+SPATH=$(dirname `which $0`)
+source "$SPATH"/common.sh
+
+CDATE=$(date +%m-%d-%y)
+
+source  "$SPATH/awslogin"
+/bin/ls -l "$LOG"*.txt | awk '{print $9}' > $logfilename
+
+while read i; do
+    echo $i
+    /usr/bin/aws s3 cp "$i" "s3://$S3BACKUPLOGS/$CDATE/" --acl=public-read
+done < $logfilename
+
+tar cvf "$LOG"archive/$HOSTNAME-$TS.tar.gz $LOG/*.txt
+
+if [ -d "$LOG" ]
+then
+    rm -f "$LOG"*.txt
+else "No log files found"
+fi

@@ -15,6 +15,9 @@ source $SPATH/logins
 export SUB="Backup Logs from $HOSTNAME"
 export HTML=$SPATH/msg.html
 export LOG=/opt/backup-logs/
+export S3BACKUPLOGS=s3://abcxyz
+export logfilename="/tmp/loglist.txt"
+
 #[Generating HTML file with Client Name for emailing]
 printf "
 <html>
