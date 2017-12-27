@@ -15,8 +15,6 @@ source $SPATH/logins
 export SUB="Backup Logs from $HOSTNAME"
 export HTML=$SPATH/msg.html
 export LOG=/opt/backup-logs/
-export S3BACKUPLOGS=s3://abcxyz
-export logfilename="/tmp/loglist.txt"
 
 #[Generating HTML file with Client Name for emailing]
 printf "
@@ -63,7 +61,9 @@ then
 fi
 
 #[Update more IP if GET access requireded for S3 content example "x.x.x.x/32"]
-export IPs='"1.1.1.1/32","2.2.2.2/32"'
+export getcurrentipv4=$(curl http://169.254.169.254/latest/meta-data/public-ipv4/)
+export IPs='"1.1.1.1/32","2.2.2.2/32","'$getcurrentipv4'"'
+
 
 printf '{
         "Version": "2012-10-17",

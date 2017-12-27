@@ -1,0 +1,7 @@
+!#/usr/bin/env bash
+export S3BACKUPLOGS=s3://abcxyz
+export AWS_ACCESS_KEY_ID='XYZ'
+export AWS_SECRET_ACCESS_KEY='AYX'
+export AWS_DEFAULT_REGION="xxx"
+
+export logfilename="/tmp/loglist.txt"

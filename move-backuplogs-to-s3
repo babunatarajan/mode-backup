@@ -7,7 +7,7 @@ source "$SPATH"/common.sh
 
 CDATE=$(date +%m-%d-%y)
 
-source  "$SPATH/awslogin"
+source "$SPATH/s3loginforbackuplogs" 
 /bin/ls -l "$LOG"*.txt | awk '{print $9}' > $logfilename
 
 while read i; do
