@@ -78,7 +78,8 @@ printf '{
                         "Action": [
 				"s3:GetObject",
 				"s3:PutObject",
-				"s3:PutObjectAcl",
+				"s3:PutObjectAcl"
+				]
                         "Resource": "arn:aws:s3:::'$S3_BUCKET'/*",
                         "Condition": {
                                 "IpAddress": {
